@@ -1,0 +1,18 @@
+{
+  "name": "trolls-in-a-cave",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@snakesilk/engine": "^0.13.0",
+    "@snakesilk/react-presenter": "^0.1.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.12"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

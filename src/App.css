@@ -1,0 +1,9 @@
+.snakesilk-presenter {
+  background: #111;
+  color: #ddd;
+  text-align: center;
+}
+
+.snakesilk-presenter .Overlay h1 {
+  order: -1;
+}
