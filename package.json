@@ -5,6 +5,7 @@
   "dependencies": {
     "@snakesilk/engine": "^0.13.0",
     "@snakesilk/react-presenter": "^0.1.2",
+    "@snakesilk/xml-loader": "^0.10.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.12"

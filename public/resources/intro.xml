@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene name="Intro">
+  <audio>
+    <music src="./music/bjernan-in-the-gang.ogg" id="intro">
+      <loop start="64"/>
+    </music>
+  </audio>
+  <events>
+    <event name="start">
+      <action type="camera-move" to="100,0,200"/>
+      <action type="transform">
+        <opacity to="0"/>
+        <entity instance-id="cave"/>
+      </action>
+      <action type="play-sequence" id="intro"/>
+    </event>
+  </events>
+  <sequences>
+    <sequence id="intro">
+      <action type="play-audio" id="intro"/>
+      <action type="play-sequence" id="fade-in-cave"/>
+      <action type="play-sequence" id="camera-move"/>
+    </sequence>
+    <sequence id="fade-in-cave">
+      <action type="transform">
+        <tween duration="4" easing="easeIn,1.7">
+          <opacity to="1"/>
+        </tween>
+        <entity instance-id="cave"/>
+      </action>
+    </sequence>
+    <sequence id="camera-move">
+      <action type="camera-move" to="0,,300">
+        <tween duration="16" easing="easeIn,1.7"/>
+      </action>
+    </sequence>
+  </sequences>
+  <entities>
+    <textures>
+      <texture id="cave" url="./jama.jpg" w="1280" h="700" scale="1"/>
+    </textures>
+    <animations texture="cave">
+      <animation id="cave" w="1280" h="700">
+        <frame x="0" y="0"/>
+      </animation>
+    </animations>
+    <entity id="cave">
+      <geometry type="plane" w="1280" h="700">
+        <face animation="cave"/>
+      </geometry>
+    </entity>
+  </entities>
+  <layout>
+    <entities>
+      <entity id="cave" x="0" y="0" z="0" instance-id="cave"/>
+    </entities>
+  </layout>
+</scene>
