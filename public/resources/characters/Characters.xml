@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entities>
+    <textures>
+        <texture id="link" url="link.png" w="32" h="32" />
+    </textures>
+
+    <animations texture="link">
+        <animation id="link" w="32" h="32">
+             <frame x="0" y="0"/>
+        </animation>
+    </animations>
+
+    <entity id="Troll">
+        <geometry type="plane" w="32" h="32">
+            <face animation="link"/>
+        </geometry>
+        <collision>
+            <rect w="16" h="16"/>
+        </collision>
+    </entity>
+</entities>

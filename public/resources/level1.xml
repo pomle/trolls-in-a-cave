@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene name="Level1">
+  <audio>
+    <music src="./music/woods.ogg" id="woods">
+      <loop/>
+    </music>
+  </audio>
+  <events>
+    <event name="start">
+      <action type="play-audio" id="woods"/>
+      <action type="camera-move" to="100,0,200"/>
+    </event>
+  </events>
+  <entities>
+    <textures>
+      <texture id="hyrule" url="./hyrule.png" w="256" h="224" scale="1"/>
+    </textures>
+    <animations texture="hyrule">
+      <animation id="hyrule" w="256" h="224">
+        <frame x="0" y="0"/>
+      </animation>
+    </animations>
+    <entity id="hyrule">
+      <geometry type="plane" w="256" h="224">
+        <face animation="hyrule"/>
+      </geometry>
+    </entity>
+  </entities>
+  <layout>
+    <entities>
+      <entity id="hyrule" x="0" y="0" z="0" instance-id="hyrule"/>
+    </entities>
+  </layout>
+</scene>
