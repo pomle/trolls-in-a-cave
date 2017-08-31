@@ -10,7 +10,7 @@
       <action type="camera-move" to="100,0,200"/>
       <action type="transform">
         <opacity to="0"/>
-        <entity instance-id="cave"/>
+        <entity instance-id="title"/>
       </action>
       <action type="play-sequence" id="intro"/>
     </event>
@@ -18,15 +18,15 @@
   <sequences>
     <sequence id="intro">
       <action type="play-audio" id="intro"/>
-      <action type="play-sequence" id="fade-in-cave"/>
       <action type="play-sequence" id="camera-move"/>
+      <action type="play-sequence" id="fade-in"/>
     </sequence>
-    <sequence id="fade-in-cave">
+    <sequence id="fade-in">
       <action type="transform">
         <tween duration="4" easing="easeIn,1.7">
           <opacity to="1"/>
         </tween>
-        <entity instance-id="cave"/>
+        <entity instance-id="title"/>
       </action>
     </sequence>
     <sequence id="camera-move">
@@ -37,10 +37,27 @@
   </sequences>
   <entities>
     <textures>
-      <texture id="cave" url="./jama.jpg" w="1280" h="700" scale="1"/>
+      <texture id="title" url="./logo.png" w="1920" h="1080" scale="1"/>
+    </textures>
+
+    <animations texture="title">
+      <animation id="title" w="1920" h="1080">
+        <frame x="0" y="0"/>
+      </animation>
+    </animations>
+    <entity id="title">
+      <geometry type="plane" w="800" h="540">
+        <face animation="title"/>
+      </geometry>
+    </entity>
+  </entities>
+
+  <entities>
+    <textures>
+      <texture id="cave" url="./cave.png" w="960" h="540" scale="1"/>
     </textures>
     <animations texture="cave">
-      <animation id="cave" w="1280" h="700">
+      <animation id="cave" w="960" h="540">
         <frame x="0" y="0"/>
       </animation>
     </animations>
@@ -52,7 +69,8 @@
   </entities>
   <layout>
     <entities>
-      <entity id="cave" x="0" y="0" z="0" instance-id="cave"/>
+      <entity id="title" x="0" y="0" z="10" scale="0.5" instance-id="title"/>
+      <entity id="cave" x="0" y="0" z="0" scale="1" instance-id="cave"/>
     </entities>
   </layout>
 </scene>
