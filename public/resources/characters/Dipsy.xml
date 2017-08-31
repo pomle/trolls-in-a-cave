@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entities>
+    <textures>
+        <texture id="dipsy" url="dipsy.png" w="64" h="64" />
+    </textures>
+
+    <animations texture="dipsy">
+        <animation id="idle-s" w="32" h="32">
+             <frame x="0" y="0"/>
+        </animation>
+        <animation id="idle-n" w="32" h="32">
+             <frame x="32" y="0"/>
+        </animation>
+        <animation id="idle-w" w="32" h="32">
+             <frame x="0" y="32"/>
+        </animation>
+        <animation id="idle-e" w="32" h="32">
+             <frame x="32" y="32"/>
+        </animation>
+
+        <animation id="walk-s" w="32" h="32">
+             <frame x="0" y="0"/>
+        </animation>
+        <animation id="walk-n" w="32" h="32">
+             <frame x="32" y="0"/>
+        </animation>
+        <animation id="walk-w" w="32" h="32">
+             <frame x="0" y="32"/>
+        </animation>
+        <animation id="walk-e" w="32" h="32">
+             <frame x="32" y="32"/>
+        </animation>
+    </animations>
+
+    <entity id="Dipsy">
+        <geometry type="plane" w="32" h="32"/>
+        <collision>
+            <rect w="16" h="16"/>
+        </collision>
+    </entity>
+</entities>

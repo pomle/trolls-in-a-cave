@@ -6,7 +6,7 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.game = createGame();
+    window.game = this.game = createGame();
   }
 
   render() {

@@ -70,7 +70,7 @@
   <layout>
     <entities>
       <entity id="title" x="0" y="0" z="10" scale="0.5" instance-id="title"/>
-      <entity id="cave" x="0" y="0" z="0" scale="1" instance-id="cave"/>
+      <entity id="cave" x="0" y="0" z="0" instance-id="cave"/>
     </entities>
   </layout>
 </scene>

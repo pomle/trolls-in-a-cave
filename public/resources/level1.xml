@@ -8,20 +8,19 @@
   <events>
     <event name="start">
       <action type="play-audio" id="woods"/>
-      <action type="camera-move" to="100,0,200"/>
     </event>
   </events>
   <entities>
     <textures>
-      <texture id="hyrule" url="./hyrule.png" w="256" h="224" scale="1"/>
+      <texture id="hyrule" url="./hyrule-cave.png" w="500" h="482" scale="1"/>
     </textures>
     <animations texture="hyrule">
-      <animation id="hyrule" w="256" h="224">
+      <animation id="hyrule" w="500" h="482">
         <frame x="0" y="0"/>
       </animation>
     </animations>
     <entity id="hyrule">
-      <geometry type="plane" w="256" h="224">
+      <geometry type="plane" w="500" h="482">
         <face animation="hyrule"/>
       </geometry>
     </entity>

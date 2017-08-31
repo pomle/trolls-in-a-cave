@@ -1,6 +1,7 @@
+import { OrthographicCamera } from 'three';
 import { Game } from '@snakesilk/engine';
 import { XMLLoader, Parser } from '@snakesilk/xml-loader';
-import { AnimationRouter, Move } from '@snakesilk/top-down-traits';
+import Characters from './Characters';
 import DPAD from './Dpad';
 
 const dpad = new DPAD();
@@ -28,16 +29,17 @@ export function createGame() {
         controllable = heroes[++index % heroes.length];
     }
 
-    function setupCharacters(context) {
-        const gipsy = new context['Monk'].constructor();
-        gipsy.applyTrait(new AnimationRouter());
-        gipsy.applyTrait(new Move());
-        gipsy.move.speed = 60;
-        heroes.push(gipsy);
+    function setupCharacters(contexts) {
+        const context = contexts.reduce((all, context) => {
+            return Object.assign(all, context);
+        }, {});
 
-        const dipsy = new context['Monk'].constructor();
-        dipsy.applyTrait(new Move());
-        dipsy.move.speed = 100;
+        const Factory = Characters(context);
+
+        const monk = Factory.Monk();
+        heroes.push(monk);
+
+        const dipsy = Factory.Dipsy();
         heroes.push(dipsy);
 
         switchCharacter();
@@ -53,6 +55,10 @@ export function createGame() {
                 hero.position.z = 1;
                 scene.world.addObject(hero);
             });
+            scene.camera.camera = new OrthographicCamera(-200, 200, 112, -112);
+            scene.camera.position = scene.camera.camera.position;
+            scene.camera.position.z = 500;
+            scene.world.ambientLight.color.setRGB(0.1,0.1,0.1);
             window.addEventListener('keydown', event => {
                 if (event.keyCode === 9) {
                     event.preventDefault();
@@ -76,7 +82,10 @@ export function createGame() {
 
     const entityParser = new Parser.EntityParser(loader);
     const sceneParser = new Parser.SceneParser(loader);
-    const entities = loadEntities('/resources/characters/Characters.xml');
+    const entities = Promise.all([
+        loadEntities('/resources/characters/Monk.xml'),
+        loadEntities('/resources/characters/Dipsy.xml'),
+    ]);
     entities.then(setupCharacters);
 
     loadScene('/resources/intro.xml')
