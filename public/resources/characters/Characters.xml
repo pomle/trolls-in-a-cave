@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entities>
     <textures>
-        <texture id="link" url="link.png" w="32" h="32" />
+        <texture id="monk" url="monk.png" w="64" h="64" />
     </textures>
 
-    <animations texture="link">
-        <animation id="link" w="32" h="32">
+    <animations texture="monk">
+        <animation id="idle-s" w="32" h="32">
              <frame x="0" y="0"/>
+        </animation>
+        <animation id="idle-n" w="32" h="32">
+             <frame x="32" y="0"/>
+        </animation>
+        <animation id="walk-s" w="32" h="32">
+             <frame x="0" y="0"/>
+        </animation>
+        <animation id="walk-n" w="32" h="32">
+             <frame x="32" y="0"/>
         </animation>
     </animations>
 
-    <entity id="Troll">
-        <geometry type="plane" w="32" h="32">
-            <face animation="link"/>
-        </geometry>
+    <entity id="Monk">
+        <geometry type="plane" w="32" h="32"/>
         <collision>
             <rect w="16" h="16"/>
         </collision>

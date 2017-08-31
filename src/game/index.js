@@ -1,6 +1,6 @@
 import { Game } from '@snakesilk/engine';
 import { XMLLoader, Parser } from '@snakesilk/xml-loader';
-import { Move } from '@snakesilk/top-down-traits';
+import { AnimationRouter, Move } from '@snakesilk/top-down-traits';
 import DPAD from './Dpad';
 
 const dpad = new DPAD();
@@ -29,15 +29,18 @@ export function createGame() {
     }
 
     function setupCharacters(context) {
-        const gipsy = new context['Troll'].constructor();
+        const gipsy = new context['Monk'].constructor();
+        gipsy.applyTrait(new AnimationRouter());
         gipsy.applyTrait(new Move());
         gipsy.move.speed = 60;
         heroes.push(gipsy);
 
-        const dipsy = new context['Troll'].constructor();
+        const dipsy = new context['Monk'].constructor();
         dipsy.applyTrait(new Move());
         dipsy.move.speed = 100;
         heroes.push(dipsy);
+
+        switchCharacter();
     }
 
     function startLevel(level) {
@@ -69,6 +72,8 @@ export function createGame() {
 
     const trolls = new Game();
     const loader = new XMLLoader(trolls);
+    loader.textureScale = 4;
+
     const entityParser = new Parser.EntityParser(loader);
     const sceneParser = new Parser.SceneParser(loader);
     const entities = loadEntities('/resources/characters/Characters.xml');

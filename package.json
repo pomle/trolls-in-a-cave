@@ -6,6 +6,7 @@
     "@snakesilk/engine": "^0.13.0",
     "@snakesilk/platform-traits": "^0.5.0",
     "@snakesilk/react-presenter": "^0.1.4",
+    "@snakesilk/top-down-traits": "^0.2.0",
     "@snakesilk/xml-loader": "^0.10.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
